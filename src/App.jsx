@@ -8,14 +8,29 @@ import { CORE_CONCEPTS, EXAMPLES } from "./data.js"
 
 
 
-
-
-
 function App() {
-  const [selectedTpoic, setselectedTpoic] = useState("components")
+  const [selectedTpoic, setselectedTpoic] = useState()
   function handleSelect(selectedButton) {
     setselectedTpoic(selectedButton)
     // console.log(selectedTpoic);
+  }
+  let tabContent = <p>Please Select a Topic</p>;
+  if (selectedTpoic) {
+    tabContent = (<div id="tab-content">
+      <h3>
+        {EXAMPLES[selectedTpoic].title}
+      </h3>
+      <p>
+        {EXAMPLES[selectedTpoic].description}
+      </p>
+      <pre>
+        <code>
+          {EXAMPLES[selectedTpoic].code}
+        </code>
+      </pre>
+    </div>
+    );
+
   }
   return (
     <div>
@@ -54,22 +69,12 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}> State</TabButton>
           </menu>
-          <div id="tab-content">
-            <h3>
-              {EXAMPLES[selectedTpoic].title}
-            </h3>
-            <p>
-              {EXAMPLES[selectedTpoic].description}
-            </p>
-            <pre>
-              <code>
-                {EXAMPLES[selectedTpoic].code}
-              </code>
-            </pre>
-          </div>
-        </section>
-      </main>
-    </div>
+
+          {tabContent}
+
+        </section >
+      </main >
+    </div >
   );
 }
 

@@ -31,14 +31,15 @@ export default function Examples() {
     }
     return (
         <Section title='Examples' id="examples">
-            <Tabs buttons={
-                <>
-                    <TabButton isSelected={selectedTpoic === 'components'} onClick={() => handleSelect('components')}>Compnents</TabButton>
-                    <TabButton isSelected={selectedTpoic === 'jsx'} onClick={() => handleSelect('jsx')}>JSX</TabButton>
-                    <TabButton isSelected={selectedTpoic === 'props'} onClick={() => handleSelect('props')}>Props</TabButton>
-                    <TabButton isSelected={selectedTpoic === 'state'} onClick={() => handleSelect('state')}> State</TabButton>
-                </>
-            }>
+            <Tabs
+                buttons={
+                    <>
+                        <TabButton isSelected={selectedTpoic === 'components'} onClick={() => handleSelect('components')}>Compnents</TabButton>
+                        <TabButton isSelected={selectedTpoic === 'jsx'} onClick={() => handleSelect('jsx')}>JSX</TabButton>
+                        <TabButton isSelected={selectedTpoic === 'props'} onClick={() => handleSelect('props')}>Props</TabButton>
+                        <TabButton isSelected={selectedTpoic === 'state'} onClick={() => handleSelect('state')}> State</TabButton>
+                    </>
+                }>
                 {tabContent}
             </Tabs>
         </Section >
